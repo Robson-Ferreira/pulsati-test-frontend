@@ -18,8 +18,6 @@ export async function login({ userLogin, userPassword }) {
 
   if (!user) throw new Error();
 
-  delete user.userPassword;
-
   return {
     user: user,
   };
@@ -29,8 +27,6 @@ export async function getUserByAccessToken(accessToken) {
   const user = users.find((u) => u.accessToken === accessToken);
 
   if (!user) throw new Error();
-
-  delete user.userPassword;
 
   return {
     user: user,
